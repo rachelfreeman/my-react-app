@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import TextInput from './Components/TextInput';
+import { useState } from 'react';
 
 function App() {
+  const [fontSize, setFontSize] = useState(40);
+
+  const increaseFontSize = () => {
+    setFontSize(fontSize + 10);
+  }
+
+  const decreaseFontSize = () => {
+    setFontSize(fontSize - 10);
+  }
+
+  const buttonStyle = {
+    padding: 40,
+    border: '1px solid black',
+    margin: 10
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TextInput style={{ fontSize: `${fontSize}px` }} /><br />
+      <text type="button" style={buttonStyle} onclick={increaseFontSize}>+</text>
+      <text type="button" style={buttonStyle} onclick={decreaseFontSize}>-</text>
     </div>
   );
 }
