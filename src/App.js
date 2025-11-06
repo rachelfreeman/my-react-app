@@ -14,16 +14,18 @@ function App() {
   }
 
   const buttonStyle = {
-    padding: 40,
-    border: '1px solid black',
-    margin: 10
+    padding: 30,
+    marginTop: 20,
+    border: '1px solid black'
   }
 
   return (
     <div className="App">
-      <TextInput style={{ fontSize: `${fontSize}px` }} /><br />
-      <text type="button" style={buttonStyle} onclick={increaseFontSize}>+</text>
-      <text type="button" style={buttonStyle} onclick={decreaseFontSize}>-</text>
+      <div><TextInput style={{ fontSize: `${fontSize}px` }} /></div>
+      <div>
+        <input type="button" style={buttonStyle} onClick={increaseFontSize} value="+" />
+        <input type="button" style={buttonStyle} onClick={decreaseFontSize} value="-" />
+      </div>
     </div>
   );
 }
