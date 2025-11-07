@@ -1,6 +1,6 @@
 import './App.css';
 import TextInput from './Components/TextInput';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [fontSize, setFontSize] = useState(40);
@@ -14,11 +14,11 @@ function App() {
     setFontSize(fontSize - 10);
   }
 
-  const callAPI = () => {
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/todos/1")
       .then(res => res.json())
       .then(data => setApiResponse(data));
-  }
+  }, []);
 
   const buttonStyle = {
     padding: 20,
@@ -32,9 +32,6 @@ function App() {
       <div>
         <input type="button" style={buttonStyle} onClick={increaseFontSize} value="+" />
         <input type="button" style={buttonStyle} onClick={decreaseFontSize} value="-" />
-      </div>
-      <div>
-        <input type="button" style={buttonStyle} onClick={callAPI} value="Call API" />
       </div>
       {apiResponse && (
         <div>
