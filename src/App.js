@@ -20,18 +20,12 @@ function App() {
       .then(data => setApiResponse(data));
   }, []);
 
-  const buttonStyle = {
-    padding: 20,
-    marginTop: 20,
-    border: '1px solid black'
-  }
-
   return (
     <div className="App">
       <div><TextInput style={{ fontSize: `${fontSize}px` }} /></div>
       <div>
-        <input type="button" style={buttonStyle} onClick={increaseFontSize} value="+" />
-        <input type="button" style={buttonStyle} onClick={decreaseFontSize} value="-" />
+        <input type="button" className="Button-style" onClick={increaseFontSize} value="+" />
+        <input type="button" className="Button-style" onClick={decreaseFontSize} value="-" />
       </div>
       {apiResponse && (
         <div>
